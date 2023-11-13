@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RosalindTest {
+public class FibTest {
 
     @Test
-    void test() {assertEquals(10946, Rosalind.fib(21));}
+    void test() {assertEquals(10946, Fib.fib(21));}
 }
