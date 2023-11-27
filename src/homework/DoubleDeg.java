@@ -17,8 +17,12 @@ public class DoubleDeg {
             g.addEdge(v1, v2) ;
         }
 
+        int sum = 0 ;
         for (int i = 1; i <= v; i++) {
-            StdOut.print((g.degree(i)+g.degree(i)) + " ") ;
+            for (int k : g.adj(i)) {
+                sum = sum + g.degree(k) ;
+            }
+            StdOut.print((sum + " ") ;
         }
         StdOut.println() ;
     }
