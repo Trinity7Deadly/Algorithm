@@ -22,16 +22,35 @@ public class HDAG {
                 }
 
                 Topological sort = new Topological(g) ;
+                String paper = null ;
+                boolean exit = false ;
+
                 // Checks if it can be sorted
                 if (sort.hasOrder()) {
-                    StdOut.printf("1 ") ;
+                    paper = "1 " ;
+                    int preRelease = 0 ;
+
                     for (int vertex : sort.order()) {
                         if (vertex != 0) { // So that it doesn't print a 0 at the end
-                            StdOut.printf(vertex + " ") ;
-                        }
+                            if (preRelease == 0) {
+                                preRelease = vertex ;
+                                paper += vertex + " " ;
+                            } else {
+                                exit = true ;
+
+                                for (int temp : g.adj(preRelease)) {
+                                    if (vertex == temp) {
+                                        paper += vertex + " " ;
+                                        preRelease = vertex ;
+                                        exit = false ;
+                                    }
+                                }
+                                if (exit) { paper = "-1" ; break ; }
+                            }
+                        } else break ;
                     }
-                } else { StdOut.printf("-1") ; }
-                StdOut.println("\n") ;
+                    StdOut.println(paper + "\n") ;
+                }
             }
         }
     }
