@@ -5,9 +5,9 @@ import edu.princeton.cs.algs4.*;
 public class TwoSat {
     public static void main(String[] args) {
         In file = new In("2Sat.txt"); // Input file
-        int numberOfFormulas = file.readInt();
+        int totalGraphs = file.readInt(); // Takes the total number of graphs to be read
 
-        for (int i = 0; i < numberOfFormulas; i++) {
+        for (int i = 0; i < totalGraphs; i++) {
             int v = file.readInt(); // Number of variables
             int e = file.readInt(); // Number of clauses
 
@@ -27,8 +27,8 @@ public class TwoSat {
         Digraph graph = new Digraph(2 * n);
 
         for (int i = 0; i < m; i++) {
-            int vOne = file.readInt();
-            int vTwo = file.readInt();
+            int vOne = file.readInt(); // Reads first v
+            int vTwo = file.readInt(); // Reads second v
 
             // Convert literals to indices in the graph
             int IndexV1;

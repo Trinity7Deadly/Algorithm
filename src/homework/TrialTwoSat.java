@@ -53,6 +53,7 @@ public class TrialTwoSat {
         for (int[] test : tests) {
             int x = test[0] < 0 ? -test[0] + n : test[0] - 1;
             int y = test[1] < 0 ? -test[1] + n : test[1] - 1;
+            // variable x = (expression) ? value if true : value if false
 
             implicationGraph.addEdge(x, y); // Add implication x -> y
             implicationGraph.addEdge(y ^ 1, x ^ 1); // Add implication ~y -> ~x
